@@ -71,6 +71,7 @@ function ProjectCategory() {
                                 key={data?._id}
                                 data={data}
                                 i={i + 1}
+                                getAllData={getAllData}
                             />
                         ))}
                     </tbody>
