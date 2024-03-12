@@ -8,14 +8,16 @@ import { MdKeyboardArrowDown, MdKeyboardArrowRight } from 'react-icons/md';
 export const dashboardNavName = [
     {
         id: 1,
-        link: '/dashboard',
+        link: '/dashboard/dashboard',
         icon: <BiGridAlt />,
         title: 'Dashboard',
+        isLink: true,
     },
 
     {
         id: 2,
-        link: '/dashboard/project',
+        link: '#',
+        isLink: false,
         icon: <LiaProjectDiagramSolid />,
         title: 'Project',
         iconClosed: <MdKeyboardArrowRight className="text-white fs-5" />,
@@ -28,7 +30,7 @@ export const dashboardNavName = [
                 icon: <MdOutlineCategory />,
             },
             {
-                id: 1,
+                id: 2,
                 title: 'Project Name',
                 link: '/dashboard/project/name',
                 icon: <MdDisplaySettings />,

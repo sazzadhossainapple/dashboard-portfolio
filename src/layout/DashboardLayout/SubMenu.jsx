@@ -8,7 +8,7 @@ function SubMenu({ item }) {
     const showSubnav = () => setSubnav(!subnav);
     return (
         <>
-            <div to={item.path} onClick={item.subNav && showSubnav}>
+            <div onClick={item.subNav && showSubnav}>
                 <NavLink
                     to={item.link}
                     className="nav-link d-flex justify-content-between align-items-center px-lg-2 mb-1 nav-link-items "

@@ -31,3 +31,20 @@ ul {
 .form-select {
     box-shadow: none !important;
 }
+
+.table {
+    /* border-collapse: separate;
+    border-spacing: 0 20px; */
+}
+
+.table-th {
+    background-color: #1f1f38 !important;
+    color: #f6f4ff !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.table-text {
+    font-size: 14px !important;
+}

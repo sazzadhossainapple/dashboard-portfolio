@@ -4,7 +4,6 @@ import MainLayout from '../../layout/MainLayout/MainLayout';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 import Dashboard from '../../pages/Dashboard/Dashboard/Dashboard';
 import DashboardLayout from '../../layout/DashboardLayout/DashboardLayout';
-import SingUp from '../../pages/SingUp/SingUp';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 import Project from '../../pages/Dashboard/Project/Project';
 import ProjectCategory from '../../pages/Dashboard/Project/ProjectCategory/ProjectCategory';
@@ -15,10 +14,7 @@ export const router = createBrowserRouter([
         path: '/',
         element: <MainLayout />,
         errorElement: <ErrorPage />,
-        children: [
-            { path: '/', element: <Home /> },
-            { path: '/sign-up', element: <SingUp /> },
-        ],
+        children: [{ path: '/', element: <Home /> }],
     },
     {
         path: '/dashboard',
@@ -33,11 +29,15 @@ export const router = createBrowserRouter([
                 path: '/dashboard',
                 element: <Dashboard />,
             },
-
             {
-                path: '/dashboard/project',
-                element: <Project />,
+                path: '/dashboard/dashboard',
+                element: <Dashboard />,
             },
+
+            // {
+            //     path: '/dashboard/project',
+            //     element: <Project />,
+            // },
             {
                 path: '/dashboard/project/category',
                 element: <ProjectCategory />,
