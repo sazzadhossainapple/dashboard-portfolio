@@ -48,3 +48,40 @@ ul {
 .table-text {
     font-size: 14px !important;
 }
+
+.modal-title-name {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #212529 !important;
+}
+
+.custom-form label {
+    font-weight: 600;
+    font-size: 14px !important;
+}
+
+.form-modal-input {
+    font-weight: 400;
+    font-size: 14px !important;
+    color: #555555;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-submit {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 10px;
+    padding: 8px 25px !important;
+    border-left: 1px solid #1e2772;
+    box-shadow: 0px 5px 5px #2d389e7a;
+}
+.btn-submit:hover {
+    background-color: #102048 !important;
+}
+
+.bg-color {
+    background-color: #1e2772 !important;
+}
+.error-text {
+    font-size: 12px;
+}

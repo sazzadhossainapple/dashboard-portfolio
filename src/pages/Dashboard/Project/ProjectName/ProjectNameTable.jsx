@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import ActiveCofirmationDialog from '../../../../components/ActiveCofirmationDialog/ActiveCofirmationDialog';
-import toast from 'react-hot-toast';
 import ConfirmationDialog from '../../../../components/ConfirmationDialog/ConfirmationDialog';
+import ActiveCofirmationDialog from '../../../../components/ActiveCofirmationDialog/ActiveCofirmationDialog';
 import { MdDelete, MdEditSquare } from 'react-icons/md';
 
-function ProjectCategoryTable({
+function ProjectNameTable({
     data,
     i,
-    getAllData,
+    getProjectNameAllData,
     setEditCategory,
     handleEditShow,
 }) {
-    const { _id, title, status } = data;
+    const { _id, title, category_id, status } = data;
     const [isSwitchOn, setIsSwitchOn] = useState(status);
     const [isOpen, setIsOpen] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -27,12 +26,15 @@ function ProjectCategoryTable({
 
     const handleUpdateActive = async (id) => {
         const updateStatus = {
+            category_id: category_id,
             title: title,
             status: !isSwitchOn,
         };
 
+        console.log(updateStatus);
+
         await fetch(
-            `${import.meta.env.VITE_API_KEY_URL}/api/project-category/${id}`,
+            `${import.meta.env.VITE_API_KEY_URL}/api/project-name/${id}`,
             {
                 method: 'PATCH',
                 headers: {
@@ -47,7 +49,7 @@ function ProjectCategoryTable({
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
-                    getAllData();
+                    getProjectNameAllData();
                     toast.success(`Status update success`);
                     handleClose();
                 }
@@ -76,21 +78,16 @@ function ProjectCategoryTable({
 
     // delete action
     const handleConfirmAction = () => {
-        fetch(
-            `${import.meta.env.VITE_API_KEY_URL}/api/project-category/${_id}`,
-            {
-                method: 'DELETE',
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem(
-                        'accessToken'
-                    )}`,
-                },
-            }
-        )
+        fetch(`${import.meta.env.VITE_API_KEY_URL}/api/project-name/${_id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            },
+        })
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
-                    getAllData();
+                    getProjectNameAllData();
                     handleCloseConfirmation();
                     toast.success(`${title} is a Deleted`);
                 }
@@ -180,4 +177,4 @@ function ProjectCategoryTable({
     );
 }
 
-export default ProjectCategoryTable;
+export default ProjectNameTable;
