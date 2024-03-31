@@ -112,7 +112,7 @@ function ProjectNameEditModal({
         <Modal
             show={show}
             onHide={handleClose}
-            size="md"
+            size="lg"
             scrollable={true}
             centered
         >
