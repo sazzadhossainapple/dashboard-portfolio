@@ -8,6 +8,8 @@ import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 import Project from '../../pages/Dashboard/Project/Project';
 import ProjectCategory from '../../pages/Dashboard/Project/ProjectCategory/ProjectCategory';
 import ProjectName from '../../pages/Dashboard/Project/ProjectName/ProjectName';
+import Resume from '../../pages/Dashboard/Resume/Resume';
+import Experience from '../../pages/Dashboard/Experience/Experience';
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +47,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/project/name',
                 element: <ProjectName />,
+            },
+            {
+                path: '/dashboard/resume',
+                element: <Resume />,
+            },
+            {
+                path: '/dashboard/experience',
+                element: <Experience />,
             },
         ],
     },

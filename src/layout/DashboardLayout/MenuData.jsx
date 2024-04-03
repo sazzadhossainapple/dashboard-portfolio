@@ -1,6 +1,7 @@
 import { BiGridAlt } from 'react-icons/bi';
+import { FaFileExport } from 'react-icons/fa';
 import { LiaProjectDiagramSolid } from 'react-icons/lia';
-import { MdOutlineCategory } from 'react-icons/md';
+import { MdOutlineCategory, MdOutlineRemoveFromQueue } from 'react-icons/md';
 import { MdDisplaySettings } from 'react-icons/md';
 
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from 'react-icons/md';
@@ -36,5 +37,19 @@ export const dashboardNavName = [
                 icon: <MdDisplaySettings />,
             },
         ],
+    },
+    {
+        id: 3,
+        link: '/dashboard/experience',
+        icon: <FaFileExport />,
+        title: 'Experience',
+        isLink: true,
+    },
+    {
+        id: 4,
+        link: '/dashboard/resume',
+        icon: <MdOutlineRemoveFromQueue />,
+        title: 'Resume',
+        isLink: true,
     },
 ];
