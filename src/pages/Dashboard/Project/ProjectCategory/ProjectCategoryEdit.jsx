@@ -69,7 +69,7 @@ function ProjectCategoryEdit({
         >
             <Modal.Header closeButton>
                 <Modal.Title className="modal-title-name">
-                    Add Project Category
+                    Update Project Category
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="px-4">

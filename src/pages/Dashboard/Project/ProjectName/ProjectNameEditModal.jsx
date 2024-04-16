@@ -126,7 +126,7 @@ function ProjectNameEditModal({
         >
             <Modal.Header closeButton>
                 <Modal.Title className="modal-title-name">
-                    Add Project Name
+                    Update Project Name
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="px-4">
