@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ConfirmationDialog from '../../../../components/ConfirmationDialog/ConfirmationDialog';
 import ActiveCofirmationDialog from '../../../../components/ActiveCofirmationDialog/ActiveCofirmationDialog';
 import { MdDelete, MdEditSquare } from 'react-icons/md';
+import toast from 'react-hot-toast';
 
 function ProjectNameTable({
     data,

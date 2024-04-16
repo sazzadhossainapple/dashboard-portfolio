@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { MdAddCircle, MdDelete } from 'react-icons/md';
+import JoditEditor from 'jodit-react';
 
 function ProjectNameEditModal({
     show,
@@ -23,16 +24,21 @@ function ProjectNameEditModal({
     const [imageFields, setImageFields] = useState([
         { id: Date.now(), value: '' },
     ]);
+    const editor = useRef(null);
+    const [content, setContent] = useState(editCategory?.description || '');
 
+    // add image
     const addImageField = () => {
         setImageFields([...imageFields, { id: Date.now(), value: '' }]);
     };
 
+    // remove image
     const removeImageField = (id) => {
         const updatedFields = imageFields.filter((field) => field.id !== id);
         setImageFields(updatedFields);
     };
 
+    // submit data
     const onSubmit = (data) => {
         handleClose();
 
@@ -42,6 +48,7 @@ function ProjectNameEditModal({
             live_link: data?.live_link,
             github_clinet: data?.github_clinet,
             github_server: data?.github_server,
+            description: content,
             image: imageFields
                 .map((field) => field.value)
                 .filter((value) => value !== ''),
@@ -73,6 +80,7 @@ function ProjectNameEditModal({
                         live_link: data?.live_link,
                         github_clinet: data?.github_clinet,
                         github_server: data?.github_server,
+                        description: content,
                         image: imageFields
                             .map((field) => field.value)
                             .filter((value) => value !== ''),
@@ -96,7 +104,6 @@ function ProjectNameEditModal({
             setValue('live_link', editCategory.live_link);
             setValue('github_clinet', editCategory.github_clinet);
             setValue('github_server', editCategory.github_server);
-
             // Set image fields
             const images = editCategory.image || [];
             const newImageFields = images.map((img, index) => ({
@@ -105,6 +112,7 @@ function ProjectNameEditModal({
             }));
             setImageFields(newImageFields);
             setValue('category_id', editCategory.category_id);
+            setContent(editCategory.description || '');
         }
     }, [editCategory, setValue]);
 
@@ -132,11 +140,9 @@ function ProjectNameEditModal({
                         <select
                             className="form-select px-3 py-2 form-modal-input"
                             {...register('category_id', { required: true })}
-                            defaultValue={editCategory?.category_id}
+                            defaultValue={editCategory?.category_id || ''}
                         >
-                            <option value="" disabled>
-                                Select a Project Category
-                            </option>
+                            <option disabled>Select a Project Category</option>
                             {allCategory?.map((data) => (
                                 <option key={data?._id} value={data?._id}>
                                     {data?.title}
@@ -199,6 +205,18 @@ function ProjectNameEditModal({
                             {...register('github_server')}
                         />
                     </div>
+
+                    <div className="mb-3">
+                        <label className="mb-2">Description</label>
+                        <JoditEditor
+                            ref={editor}
+                            value={content}
+                            onChange={(newContent) => {
+                                setContent(newContent);
+                            }}
+                        />
+                    </div>
+
                     {imageFields.map((field, index) => (
                         <div className="mb-3" key={field.id}>
                             <label className="mb-2">
