@@ -10,6 +10,9 @@ import ProjectCategory from '../../pages/Dashboard/Project/ProjectCategory/Proje
 import ProjectName from '../../pages/Dashboard/Project/ProjectName/ProjectName';
 import Resume from '../../pages/Dashboard/Resume/Resume';
 import Experience from '../../pages/Dashboard/Experience/Experience';
+import ExperienceProfile from '../../pages/Dashboard/ExperienceProfile/ExperienceProfile';
+import AboutMe from '../../pages/Dashboard/AboutMe/AboutMe';
+import Blog from '../../pages/Dashboard/Blog/Blog';
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +58,18 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/experience',
                 element: <Experience />,
+            },
+            {
+                path: '/dashboard/profile',
+                element: <ExperienceProfile />,
+            },
+            {
+                path: '/dashboard/about-me',
+                element: <AboutMe />,
+            },
+            {
+                path: '/dashboard/blog',
+                element: <Blog />,
             },
         ],
     },

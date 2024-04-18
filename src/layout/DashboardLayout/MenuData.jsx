@@ -5,6 +5,9 @@ import { MdOutlineCategory, MdOutlineRemoveFromQueue } from 'react-icons/md';
 import { MdDisplaySettings } from 'react-icons/md';
 
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from 'react-icons/md';
+import { ImProfile } from 'react-icons/im';
+import { CgProfile } from 'react-icons/cg';
+import { FaBlogger } from 'react-icons/fa';
 
 export const dashboardNavName = [
     {
@@ -50,6 +53,27 @@ export const dashboardNavName = [
         link: '/dashboard/resume',
         icon: <MdOutlineRemoveFromQueue />,
         title: 'Resume',
+        isLink: true,
+    },
+    {
+        id: 5,
+        link: '/dashboard/profile',
+        icon: <ImProfile />,
+        title: 'Job Profile',
+        isLink: true,
+    },
+    {
+        id: 6,
+        link: '/dashboard/about-me',
+        icon: <CgProfile />,
+        title: 'About Me',
+        isLink: true,
+    },
+    {
+        id: 6,
+        link: '/dashboard/blog',
+        icon: <FaBlogger />,
+        title: 'Blog',
         isLink: true,
     },
 ];
