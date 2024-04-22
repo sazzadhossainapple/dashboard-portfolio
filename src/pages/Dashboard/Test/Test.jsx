@@ -6,13 +6,13 @@ import Loading from '../../../components/Loading/Loading';
 const Test = () => {
     const column = [
         { name: 'ID', selector: (row) => row?.id, sortable: true },
-        { name: 'Name', selector: (row) => row?.name, sortable: true },
-        { name: 'Email', selector: (row) => row?.email, sortable: true },
-        {
-            name: 'Designation',
-            selector: (row) => row?.designation,
-            sortable: true,
-        },
+        { name: 'Name', selector: (row) => row?.title, sortable: true },
+        // { name: 'Email', selector: (row) => row?.email, sortable: true },
+        // {
+        //     name: 'Designation',
+        //     selector: (row) => row?.designation,
+        //     sortable: true,
+        // },
     ];
     const customStyles = {
         headRow: {
@@ -50,11 +50,13 @@ const Test = () => {
         try {
             setLoading(true);
             const res = await axios.get(
-                `https://glil-api.nextgenitltd.com/api/v1/staff?page=${currentPage}&limit=${pageSize}`
+                `${
+                    import.meta.env.VITE_API_KEY_URL
+                }/api/blog?page=${currentPage}&limit=${pageSize}`
             );
-            setRecords(res?.data?.data?.staffLists);
-            setTotalRows(res?.data?.data?.totalStaffLists);
-            setRecordsFilter(res.data?.data?.staffLists);
+            setRecords(res?.data?.data?.blog);
+            setTotalRows(res?.data?.data?.totalBlog);
+            setRecordsFilter(res.data?.data?.blog);
         } catch (error) {
             console.log(error);
         } finally {
