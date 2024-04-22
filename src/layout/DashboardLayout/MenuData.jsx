@@ -76,4 +76,11 @@ export const dashboardNavName = [
         title: 'Blog',
         isLink: true,
     },
+    {
+        id: 6,
+        link: '/dashboard/test',
+        icon: <FaBlogger />,
+        title: 'Test',
+        isLink: true,
+    },
 ];

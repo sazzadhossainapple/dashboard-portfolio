@@ -15,10 +15,13 @@ const BlogEdit = ({ show, handleClose, editBlog, setEditBlog, getAllData }) => {
 
     const editor = useRef(null);
     const [content, setContent] = useState(editBlog?.description || '');
+    const [loading, setLoading] = useState(false);
 
     // submit data
     const onSubmit = (data) => {
         handleClose();
+
+        setLoading(true);
 
         const dataAdd = {
             title: data?.title,
@@ -53,6 +56,9 @@ const BlogEdit = ({ show, handleClose, editBlog, setEditBlog, getAllData }) => {
             .catch((error) => {
                 console.error('Error:', error);
                 toast.error('Not Updated!!');
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
 
@@ -121,7 +127,7 @@ const BlogEdit = ({ show, handleClose, editBlog, setEditBlog, getAllData }) => {
                     <div className="mt-4 d-flex justify-content-center">
                         <input
                             type="submit"
-                            value="Save"
+                            value={`${loading ? 'Loading...' : 'Update'}`}
                             className="btn btn-submit bg-color text-white"
                         />
                     </div>

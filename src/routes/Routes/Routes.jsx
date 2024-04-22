@@ -13,6 +13,7 @@ import Experience from '../../pages/Dashboard/Experience/Experience';
 import ExperienceProfile from '../../pages/Dashboard/ExperienceProfile/ExperienceProfile';
 import AboutMe from '../../pages/Dashboard/AboutMe/AboutMe';
 import Blog from '../../pages/Dashboard/Blog/Blog';
+import Test from '../../pages/Dashboard/Test/Test';
 
 export const router = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/blog',
                 element: <Blog />,
+            },
+            {
+                path: '/dashboard/test',
+                element: <Test />,
             },
         ],
     },

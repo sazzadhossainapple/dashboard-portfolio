@@ -14,9 +14,12 @@ const BlogAdd = ({ show, handleClose, getAllData }) => {
 
     const editor = useRef(null);
     const [content, setContent] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = (data) => {
         handleClose();
+
+        setLoading(true);
 
         const dataAdd = {
             title: data?.title,
@@ -44,6 +47,9 @@ const BlogAdd = ({ show, handleClose, getAllData }) => {
             .catch((error) => {
                 console.error('Error:', error);
                 toast.error('Not Added!!');
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
     return (
@@ -99,7 +105,7 @@ const BlogAdd = ({ show, handleClose, getAllData }) => {
                     <div className="mt-4 d-flex justify-content-center">
                         <input
                             type="submit"
-                            value="Save"
+                            value={`${loading ? 'Loading...' : 'Save'}`}
                             className="btn btn-submit bg-color text-white"
                         />
                     </div>

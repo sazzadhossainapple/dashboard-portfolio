@@ -16,6 +16,17 @@
     width: -webkit-max-content;
     width: max-content;
 }
+.home-container .btn-submit:hover {
+    background: #4db5ff !important;
+    border-color: transparent;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.4s ease;
+    width: -webkit-max-content;
+    width: max-content;
+}
 
 .form-content {
     background-color: rgba(0, 0, 0, 0.3);

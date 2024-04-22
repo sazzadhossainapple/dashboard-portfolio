@@ -11,11 +11,11 @@ function Home() {
     const [token, setToken] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+    const [loading, setLoading] = useState(false);
 
     const from = location.state?.from?.pathname || '/dashboard';
 
     useEffect(() => {
-        // const tokens = localStorage.getItem("accessToken");
         if (token) {
             navigate(from, { replace: true });
         }
@@ -43,6 +43,8 @@ function Home() {
             setPasswordError('Password is required');
             return;
         }
+
+        setLoading(true);
 
         const user = {
             email,
@@ -73,6 +75,9 @@ function Home() {
             .catch((error) => {
                 console.error(error);
                 toast.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
 
@@ -135,7 +140,7 @@ function Home() {
                     </div>
 
                     <button type="submit" className="btn btn-submit w-100">
-                        Submit
+                        {loading ? 'Loading...' : 'Submit'}
                     </button>
                 </form>
             </div>

@@ -23,6 +23,7 @@ function ProjectNameAddModal({
     ]);
     const editor = useRef(null);
     const [content, setContent] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const addImageField = () => {
         setImageFields([...imageFields, { id: Date.now(), value: '' }]);
@@ -34,6 +35,8 @@ function ProjectNameAddModal({
     };
 
     const onSubmit = (data) => {
+        setLoading(true);
+
         handleClose();
 
         const dataAdd = {
@@ -68,6 +71,9 @@ function ProjectNameAddModal({
             .catch((error) => {
                 console.error('Error:', error);
                 toast.error(error.response.data.message);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
 
@@ -213,7 +219,7 @@ function ProjectNameAddModal({
                     <div className="mt-4 d-flex justify-content-center">
                         <input
                             type="submit"
-                            value="Save"
+                            value={`${loading ? 'Loading...' : 'Save'}`}
                             className="btn btn-submit bg-color text-white"
                         />
                     </div>

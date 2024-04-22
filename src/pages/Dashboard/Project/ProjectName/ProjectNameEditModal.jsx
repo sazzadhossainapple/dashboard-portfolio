@@ -26,6 +26,7 @@ function ProjectNameEditModal({
     ]);
     const editor = useRef(null);
     const [content, setContent] = useState(editCategory?.description || '');
+    const [loading, setLoading] = useState(false);
 
     // add image
     const addImageField = () => {
@@ -40,6 +41,7 @@ function ProjectNameEditModal({
 
     // submit data
     const onSubmit = (data) => {
+        setLoading(true);
         handleClose();
 
         const dataAdd = {
@@ -94,6 +96,9 @@ function ProjectNameEditModal({
             .catch((error) => {
                 console.error('Error:', error);
                 toast.error(error.response.data.message);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
 
@@ -259,7 +264,7 @@ function ProjectNameEditModal({
                     <div className="mt-4 d-flex justify-content-center">
                         <input
                             type="submit"
-                            value="Save"
+                            value={`${loading ? 'Loading...' : 'Update'}`}
                             className="btn btn-submit bg-color text-white"
                         />
                     </div>

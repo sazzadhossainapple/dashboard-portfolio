@@ -67,7 +67,7 @@ function DashboardLayout() {
                 </ul>
             </div>
             <section className="home-section">
-                <nav className="d-flex align-items-center">
+                <nav className="navs d-flex align-items-center">
                     <div className="sidebar-button">
                         <i className="d-xl-none" onClick={handleShow}>
                             <FaBars className="bars-icon" />

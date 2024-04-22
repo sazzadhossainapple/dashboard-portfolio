@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 const AboutMe = () => {
     const [aboutMe, setAboutMe] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const {
         register,
         handleSubmit,
@@ -43,6 +44,7 @@ const AboutMe = () => {
     }
 
     const onSubmit = (data) => {
+        setLoading(true);
         fetch(
             `${import.meta.env.VITE_API_KEY_URL}/api/about-me/${aboutMe?._id}`,
             {
@@ -65,6 +67,9 @@ const AboutMe = () => {
             .catch((err) => {
                 console.log(err);
                 toast.error('Not Updated');
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
 
@@ -153,7 +158,7 @@ const AboutMe = () => {
                     <div className="mt-4 d-flex justify-content-center">
                         <input
                             type="submit"
-                            value="Update"
+                            value={`${loading ? 'Loading...' : 'Update'}`}
                             className="btn btn-submit bg-color text-white"
                         />
                     </div>
