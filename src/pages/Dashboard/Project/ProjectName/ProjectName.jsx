@@ -68,7 +68,7 @@ function ProjectName() {
     return (
         <div className="home-content">
             <div className="my-4 d-flex align-items-center justify-content-between">
-                <h6 className="fw-bold">All Catagory</h6>
+                <h6 className="fw-bold">All Project</h6>
                 <div>
                     <button
                         onClick={handleAddShow}
